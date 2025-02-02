@@ -1,0 +1,14 @@
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.card {
+    background-color: #4BFF5D;
+    width: 250px;
+    font-family: 'Trebuchet MS';
+    margin-top: 10px;
+    margin-left: 10px;
+    text-align: center;
+}
