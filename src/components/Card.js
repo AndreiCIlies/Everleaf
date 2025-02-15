@@ -8,7 +8,7 @@ const Card = ({ title, description, date }) => {
             <h2>{title}</h2>
             <p>{description}</p>
             <p>{date}</p>
-            <button className="edit-btn">
+            <button className="update-btn">
                 <BsPencilSquare />
             </button>
             <button className="delete-btn">
