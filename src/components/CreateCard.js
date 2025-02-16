@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../styles/CreateCard.css';
 
 const CreateCard = ({ setCards }) => {
     const [title, setTitle] = useState('');
@@ -20,6 +21,7 @@ const CreateCard = ({ setCards }) => {
     return (
         <div className="create-card">
             <form onSubmit={handleSubmit}>
+                <h2>Create new card</h2>
                 <input
                     type="text"
                     placeholder="Title"
@@ -27,6 +29,7 @@ const CreateCard = ({ setCards }) => {
                     onChange={(e) => setTitle(e.target.value)}
                     required
                 />
+                <br/>
                 <input
                     type="text"
                     placeholder="Description"
@@ -34,12 +37,14 @@ const CreateCard = ({ setCards }) => {
                     onChange={(e) => setDescription(e.target.value)}
                     required
                 />
+                <br/>
                 <input
                     type="date"
                     value={date}
                     onChange={(e) => setDate(e.target.value)}
                     required
                 />
+                <br/>
                 <button type="submit">Create</button>
             </form>
         </div>
