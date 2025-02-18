@@ -27,6 +27,7 @@ function App() {
                       title={card.title}
                       description={card.description}
                       date={card.date}
+                      color={card.color}
                     />
                   ))}
                 </div>

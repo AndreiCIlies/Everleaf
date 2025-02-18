@@ -5,6 +5,7 @@ import '../styles/CreateCard.css';
 const CreateCard = ({ setCards }) => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
+    const [color, setColor] = useState('#ffffff');
 
     const navigate = useNavigate();
 
@@ -13,7 +14,7 @@ const CreateCard = ({ setCards }) => {
 
         if (title && description) {
             const currentDate = new Date().toISOString().split("T")[0];
-            setCards((prevCards) => [...prevCards, { title, description, date: currentDate }]);
+            setCards((prevCards) => [...prevCards, { title, description, date: currentDate, color }]);
             navigate('/');
         }
     }
@@ -21,7 +22,7 @@ const CreateCard = ({ setCards }) => {
     return (
         <div className="create-card">
             <form onSubmit={handleSubmit}>
-                <h2>Create new card</h2>
+                <p>Create new card</p>
                 <input
                     type="text"
                     placeholder="Title"
@@ -37,6 +38,15 @@ const CreateCard = ({ setCards }) => {
                     onChange={(e) => setDescription(e.target.value)}
                     required
                 />
+                <br/>
+                <div className="color-picker">
+                    <label>Color:</label>
+                    <input
+                        type="color"
+                        value={color}
+                        onChange={(e) => setColor(e.target.value)}
+                    />
+                </div>
                 <br/>
                 <button type="submit">Create</button>
             </form>

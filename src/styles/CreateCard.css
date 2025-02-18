@@ -1,4 +1,4 @@
-.create-card h2 {
+.create-card p {
     text-align: center;
     font-family: 'Optima';
     font-size: 30px;
@@ -24,6 +24,23 @@
     border-radius: 5px;
     display: block;
     box-sizing: border-box;
+}
+
+.color-picker {
+    display: flex;
+    align-items: center;
+}
+
+.color-picker input {
+    height: 40px;
+}
+
+.create-card label {
+    text-align: center;
+    font-family: 'Optima';
+    font-size: 18px;
+    font-weight: 500;
+    margin-right: 10px;
 }
 
 .create-card button {

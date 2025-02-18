@@ -1,10 +1,12 @@
 .card {
-    background-color: #4BFF5D;
     width: 250px;
     font-family: 'Trebuchet MS';
     margin-top: 10px;
     margin-left: 10px;
     text-align: center;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 .card svg {
