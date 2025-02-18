@@ -5,15 +5,15 @@ import '../styles/CreateCard.css';
 const CreateCard = ({ setCards }) => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
-    const [date, setDate] = useState('');
 
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (title && description && date) {
-            setCards((prevCards) => [...prevCards, { title, description, date }]);
+        if (title && description) {
+            const currentDate = new Date().toISOString().split("T")[0];
+            setCards((prevCards) => [...prevCards, { title, description, date: currentDate }]);
             navigate('/');
         }
     }
@@ -35,13 +35,6 @@ const CreateCard = ({ setCards }) => {
                     placeholder="Description"
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
-                    required
-                />
-                <br/>
-                <input
-                    type="date"
-                    value={date}
-                    onChange={(e) => setDate(e.target.value)}
                     required
                 />
                 <br/>
