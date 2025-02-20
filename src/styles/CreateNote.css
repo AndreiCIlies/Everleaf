@@ -1,4 +1,4 @@
-.create-card p {
+.create-note p {
     text-align: center;
     font-family: 'Optima';
     font-size: 30px;
@@ -6,7 +6,7 @@
     margin-top: -10px;
 }
 
-.create-card form {
+.create-note form {
     width: 300px;
     margin: 20px auto;
     padding: 20px;
@@ -16,7 +16,7 @@
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
 }
 
-.create-card input {
+.create-note input {
     width: 100%;
     padding: 10px;
     font-size: 16px;
@@ -35,7 +35,7 @@
     height: 40px;
 }
 
-.create-card label {
+.create-note label {
     text-align: center;
     font-family: 'Optima';
     font-size: 18px;
@@ -43,7 +43,7 @@
     margin-right: 10px;
 }
 
-.create-card button {
+.create-note button {
     width: 100%;
     padding: 12px;
     font-size: 16px;
@@ -55,6 +55,6 @@
     transition: background-color 0.3s;
 }
 
-.create-card button:hover {
+.create-note button:hover {
     background-color: #0056b3;
 }

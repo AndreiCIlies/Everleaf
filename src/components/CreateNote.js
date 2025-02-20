@@ -1,10 +1,10 @@
+import '../styles/CreateNote.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../styles/CreateCard.css';
 
-const CreateCard = ({ setCards }) => {
+const CreateNote = ({ setNotes }) => {
     const [title, setTitle] = useState('');
-    const [description, setDescription] = useState('');
+    const [note, setNote] = useState('');
     const [color, setColor] = useState('#ffffff');
 
     const navigate = useNavigate();
@@ -12,17 +12,17 @@ const CreateCard = ({ setCards }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (title && description) {
+        if (title && note) {
             const currentDate = new Date().toISOString().split("T")[0];
-            setCards((prevCards) => [...prevCards, { title, description, date: currentDate, color }]);
+            setNotes((prevNotes) => [...prevNotes, { title, note, date: currentDate, color }]);
             navigate('/');
         }
     }
 
     return (
-        <div className="create-card">
+        <div className="create-note">
             <form onSubmit={handleSubmit}>
-                <p>Create new card</p>
+                <p>Create new note</p>
                 <input
                     type="text"
                     placeholder="Title"
@@ -33,9 +33,9 @@ const CreateCard = ({ setCards }) => {
                 <br/>
                 <input
                     type="text"
-                    placeholder="Description"
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
+                    placeholder="Note"
+                    value={note}
+                    onChange={(e) => setNote(e.target.value)}
                     required
                 />
                 <br/>
@@ -54,4 +54,4 @@ const CreateCard = ({ setCards }) => {
     )
 };
 
-export default CreateCard;
+export default CreateNote;

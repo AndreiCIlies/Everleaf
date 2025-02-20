@@ -1,13 +1,13 @@
-import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
 import './App.css';
 import Header from './components/Header';
-import Card from './components/Card';
+import Note from './components/Note';
+import CreateNote from './components/CreateNote';
 import Footer from './components/Footer';
-import CreateCard from './components/CreateCard';
 
 function App() {
-  const [cards, setCards] = useState([]);
+  const [notes, setNotes] = useState([]);
 
   return (
     <Router>
@@ -20,14 +20,14 @@ function App() {
             path="/"
             element={
               <>
-                <div className="cards">
-                  {cards.map((card, index) => (
-                    <Card
+                <div className="notes">
+                  {notes.map((note, index) => (
+                    <Note
                       key={index}
-                      title={card.title}
-                      description={card.description}
-                      date={card.date}
-                      color={card.color}
+                      title={note.title}
+                      note={note.note}
+                      date={note.date}
+                      color={note.color}
                     />
                   ))}
                 </div>
@@ -39,7 +39,7 @@ function App() {
           />
           <Route
             path="/create"
-            element={<CreateCard setCards={setCards} />}
+            element={<CreateNote setNotes={setNotes} />}
           />
         </Routes>
       </div>
