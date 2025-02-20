@@ -1,4 +1,4 @@
-.card {
+.note {
     width: 250px;
     font-family: 'Trebuchet MS';
     margin-top: 10px;
@@ -9,7 +9,7 @@
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
 }
 
-.card svg {
+.note svg {
     width: 25px;
     height: 25px;
 }
