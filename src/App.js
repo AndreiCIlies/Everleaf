@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Note from './components/Note';
 import CreateNote from './components/CreateNote';
 import UpdateNote from './components/UpdateNote';
+import DeleteNote from './components/DeleteNote';
 import Footer from './components/Footer';
 
 function App() {
@@ -46,6 +47,10 @@ function App() {
           <Route
             path="/update/:id"
             element={<UpdateNote notes={notes} setNotes={setNotes}/>}
+          />
+          <Route
+            path="/delete/:id"
+            element={<DeleteNote notes={notes} setNotes={setNotes}/>}
           />
         </Routes>
       </div>

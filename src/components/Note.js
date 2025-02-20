@@ -14,7 +14,7 @@ const Note = ({ title, note, date, color, index }) => {
             <button className="update-btn" onClick={() => navigate(`/update/${index}`)}>
                 <BsPencilSquare />
             </button>
-            <button className="delete-btn">
+            <button className="delete-btn" onClick={() => navigate(`/delete/${index}`)}>
                 <BsFillTrashFill />
             </button>
         </div>

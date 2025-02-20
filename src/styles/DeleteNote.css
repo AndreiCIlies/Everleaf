@@ -1,0 +1,49 @@
+.delete-note {
+    width: 300px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.delete-note h2 {
+    font-family: 'Optima';
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.delete-note p {
+    font-family: 'Optima';
+    font-size: 18px;
+    font-weight: 500;
+    margin: 10px 0;
+}
+
+.delete-note button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.delete-note button:hover {
+    background-color: #0056b3;
+}
+
+.delete-note .cancel-btn {
+    background-color: #f60d05;
+}
+
+.delete-note .cancel-btn:hover {
+    background-color: #cd201a;
+}
