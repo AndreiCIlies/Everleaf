@@ -1,14 +1,14 @@
-import "../styles/Card.css";
+import "../styles/Note.css";
 import { BsFillTrashFill } from "react-icons/bs";
 import { BsPencilSquare } from "react-icons/bs";
 
-const Card = ({ title, description, date, color }) => {
+const Note = ({ title, note, date, color }) => {
     const formattedDate = date.split("-").reverse().join("/");
 
     return (
-        <div className="card" style={{ backgroundColor: color }}>
+        <div className="note" style={{ backgroundColor: color }}>
             <h2>{title}</h2>
-            <p>{description}</p>
+            <p>{note}</p>
             <p><strong>Created on:</strong> {formattedDate}</p>
             <button className="update-btn">
                 <BsPencilSquare />
@@ -20,4 +20,4 @@ const Card = ({ title, description, date, color }) => {
     )
 }
 
-export default Card;
+export default Note;
