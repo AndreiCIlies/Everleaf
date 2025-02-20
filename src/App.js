@@ -4,6 +4,7 @@ import './App.css';
 import Header from './components/Header';
 import Note from './components/Note';
 import CreateNote from './components/CreateNote';
+import UpdateNote from './components/UpdateNote';
 import Footer from './components/Footer';
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
                       note={note.note}
                       date={note.date}
                       color={note.color}
+                      index={index}
                     />
                   ))}
                 </div>
@@ -40,6 +42,10 @@ function App() {
           <Route
             path="/create"
             element={<CreateNote setNotes={setNotes} />}
+          />
+          <Route
+            path="/update/:id"
+            element={<UpdateNote notes={notes} setNotes={setNotes}/>}
           />
         </Routes>
       </div>

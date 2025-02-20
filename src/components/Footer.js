@@ -1,5 +1,5 @@
-import "../styles/Footer.css";
-import { BsPlus } from "react-icons/bs";
+import '../styles/Footer.css';
+import { BsPlus } from 'react-icons/bs';
 import { useNavigate } from 'react-router-dom';
 
 const Footer = () => {

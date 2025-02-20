@@ -1,0 +1,60 @@
+.update-note p {
+    text-align: center;
+    font-family: 'Optima';
+    font-size: 30px;
+    font-weight: 500;
+    margin-top: -10px;
+}
+
+.update-note form {
+    width: 300px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.update-note input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: block;
+    box-sizing: border-box;
+}
+
+.color-picker {
+    display: flex;
+    align-items: center;
+}
+
+.color-picker input {
+    height: 40px;
+}
+
+.update-note label {
+    text-align: center;
+    font-family: 'Optima';
+    font-size: 18px;
+    font-weight: 500;
+    margin-right: 10px;
+}
+
+.update-note button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.update-note button:hover {
+    background-color: #0056b3;
+}
