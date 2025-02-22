@@ -14,7 +14,13 @@ const CreateNote = ({ setNotes }) => {
 
         if (title && note) {
             const currentDate = new Date().toISOString().split("T")[0];
-            setNotes((prevNotes) => [...prevNotes, { title, note, date: currentDate, color }]);
+            
+            setNotes((prevNotes) => {
+                const updatedNotes = [...prevNotes, { title, note, date: currentDate, color }];
+                localStorage.setItem('notes', JSON.stringify(updatedNotes)); // Save to localStorage
+                return updatedNotes;
+            });
+            
             navigate('/');
         }
     }

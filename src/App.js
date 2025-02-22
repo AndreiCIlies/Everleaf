@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import Header from './components/Header';
 import Note from './components/Note';
@@ -10,6 +10,19 @@ import Footer from './components/Footer';
 
 function App() {
   const [notes, setNotes] = useState([]);
+
+  useEffect(() => {
+    const storedNotes = localStorage.getItem('notes');
+    if (storedNotes) {
+      setNotes(JSON.parse(storedNotes));
+    }
+  }, []);
+
+  useEffect(() => {
+    if (notes.length > 0) {
+      localStorage.setItem('notes', JSON.stringify(notes));
+    }
+  }, [notes]);
 
   return (
     <Router>

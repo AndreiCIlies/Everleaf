@@ -8,7 +8,10 @@ const DeleteNote = ({ setNotes, notes }) => {
     const noteToDelete = notes[noteId];
 
     const handleDelete = () => {
-        setNotes((prevNotes) => prevNotes.filter((_, index) => index !== noteId));
+        const updatedNotes = notes.filter((_, index) => index !== noteId);
+        setNotes(updatedNotes);
+        localStorage.setItem('notes', JSON.stringify(updatedNotes));
+
         navigate('/');
     };
 

@@ -25,8 +25,11 @@ const UpdateNote = ({ notes, setNotes }) => {
 
         if (title && note) {
             const updatedNotes = [...notes];
+            
             updatedNotes[id] = { title, note, date: noteToUpdate.date, color };
             setNotes(updatedNotes);
+            localStorage.setItem('notes', JSON.stringify(updatedNotes));
+
             navigate('/');
         }
     };
