@@ -1,11 +1,14 @@
 import '../styles/UpdateNote.css';
-import { useState, useEffect } from 'react';
+
+import { useState, useEffect, useMemo } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+
+import axios from 'axios';
 
 const UpdateNote = ({ notes, setNotes }) => {
     const { id } = useParams();
-    const noteIndex = parseInt(id, 10);
-    const noteToUpdate = notes[noteIndex];
+    const noteToUpdate = useMemo(() => notes.find(note => note._id === id) || {}, [notes, id]);
+
     const navigate = useNavigate();
 
     const [title, setTitle] = useState('');
@@ -14,27 +17,23 @@ const UpdateNote = ({ notes, setNotes }) => {
 
     useEffect(() => {
         if (noteToUpdate) {
-            setTitle(noteToUpdate.title || '');
-            setNote(noteToUpdate.note || '');
-            setColor(noteToUpdate.color || '#ffffff');
+            setTitle(noteToUpdate.title);
+            setNote(noteToUpdate.note);
+            setColor(noteToUpdate.color);
         }
     }, [noteToUpdate]);
 
-    const handleUpdate = (e) => {
+    const handleUpdate = async (e) => {
         e.preventDefault();
 
-        if (title && note) {
-            const updatedNotes = [...notes];
-            
-            updatedNotes[id] = { title, note, date: noteToUpdate.date, color };
-            setNotes(updatedNotes);
-            localStorage.setItem('notes', JSON.stringify(updatedNotes));
-
+        try {
+            await axios.put(`http://localhost:5000/notes/${id}`, { title, note, color, date: noteToUpdate.date });
+            setNotes(prev => prev.map(n => (n._id === id ? { ...n, title, note, color } : n)));
             navigate('/');
+        } catch (err) {
+            console.error(err);
         }
     };
-
-    if (!noteToUpdate) return <p>Note not found!</p>;
 
     return (
         <div className="update-note">

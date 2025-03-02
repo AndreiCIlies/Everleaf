@@ -1,6 +1,9 @@
 import '../styles/CreateNote.css';
+
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+import axios from 'axios';
 
 const CreateNote = ({ setNotes }) => {
     const [title, setTitle] = useState('');
@@ -9,21 +12,21 @@ const CreateNote = ({ setNotes }) => {
 
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         if (title && note) {
-            const currentDate = new Date().toISOString().split("T")[0];
+            const newNote = { title, note, date: new Date().toISOString().split("T")[0], color };
             
-            setNotes((prevNotes) => {
-                const updatedNotes = [...prevNotes, { title, note, date: currentDate, color }];
-                localStorage.setItem('notes', JSON.stringify(updatedNotes)); // Save to localStorage
-                return updatedNotes;
-            });
-            
-            navigate('/');
+            try {
+                const res = await axios.post('http://localhost:5000/notes', newNote);
+                setNotes(prev => [...prev, res.data]);
+                navigate('/');
+            } catch (err) {
+                console.error(err);
+            }
         }
-    }
+    };
 
     return (
         <div className="create-note">

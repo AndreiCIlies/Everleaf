@@ -1,5 +1,3 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useState, useEffect } from 'react';
 import './App.css';
 import Header from './components/Header';
 import Note from './components/Note';
@@ -8,21 +6,19 @@ import UpdateNote from './components/UpdateNote';
 import DeleteNote from './components/DeleteNote';
 import Footer from './components/Footer';
 
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+
+import axios from 'axios';
+
 function App() {
   const [notes, setNotes] = useState([]);
 
   useEffect(() => {
-    const storedNotes = localStorage.getItem('notes');
-    if (storedNotes) {
-      setNotes(JSON.parse(storedNotes));
-    }
+    axios.get('http://localhost:5000/notes')
+      .then(res => setNotes(res.data))
+      .catch(err => console.error(err));
   }, []);
-
-  useEffect(() => {
-    if (notes.length > 0) {
-      localStorage.setItem('notes', JSON.stringify(notes));
-    }
-  }, [notes]);
 
   return (
     <Router>
@@ -38,7 +34,8 @@ function App() {
                 <div className="notes">
                   {notes.map((note, index) => (
                     <Note
-                      key={index}
+                      key={note._id}
+                      id={note._id}
                       title={note.title}
                       note={note.note}
                       date={note.date}

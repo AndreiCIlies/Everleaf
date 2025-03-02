@@ -2,7 +2,7 @@ import '../styles/Note.css';
 import { BsFillTrashFill, BsPencilSquare } from 'react-icons/bs';
 import { useNavigate } from 'react-router-dom';
 
-const Note = ({ title, note, date, color, index }) => {
+const Note = ({ id, title, note, date, color }) => {
     const navigate = useNavigate();
     const formattedDate = date.split("-").reverse().join("/");
 
@@ -11,10 +11,10 @@ const Note = ({ title, note, date, color, index }) => {
             <h2>{title}</h2>
             <p>{note}</p>
             <p><strong>Created on:</strong> {formattedDate}</p>
-            <button className="update-btn" onClick={() => navigate(`/update/${index}`)}>
+            <button className="update-btn" onClick={() => navigate(`/update/${id}`)}>
                 <BsPencilSquare />
             </button>
-            <button className="delete-btn" onClick={() => navigate(`/delete/${index}`)}>
+            <button className="delete-btn" onClick={() => navigate(`/delete/${id}`)}>
                 <BsFillTrashFill />
             </button>
         </div>
